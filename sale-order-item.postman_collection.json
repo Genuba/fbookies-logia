@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "e42d26db-d22b-4131-9d15-8ef708059db4",
+		"name": "sale-order-item",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6754811",
+		"_collection_link": "https://senshi-no-gurupu.postman.co/workspace/Team-Workspace~1a429517-a9a3-44f1-8c05-5131e039f70b/collection/6754811-e42d26db-d22b-4131-9d15-8ef708059db4?action=share&creator=6754811&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "getSaleOrderItem",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/saleOrderItem/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"saleOrderItem",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllSaleOrderItem",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/saleOrderItem/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"saleOrderItem",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSaleOrderItem",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": \"100\",\r\n    \"unitPrice\": \"1000\",\r\n    \"totalPrice\": \"1000\",\r\n    \"productId\": 1,\r\n    \"saleOrderId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/saleOrderItem/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"saleOrderItem",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSaleOrderItem",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": \"100\",\r\n    \"unitPrice\": \"1000\",\r\n    \"totalPrice\": \"1000\",\r\n    \"productId\": 1,\r\n    \"saleOrderId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/saleOrderItem/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"saleOrderItem",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSaleOrderItem",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/saleOrderItem/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"saleOrderItem",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
