@@ -1,22 +1,19 @@
-import express from 'express';
+import express from "express";
 
-import { json, urlencoded } from 'body-parser';
-import saleOrderItemRouter from '../routes/saleOrderItem';
-import saleOrderRouter from '../routes/saleOrder';
-
-import cors from 'cors';
+import { json, urlencoded } from "body-parser";
+import cors from "cors";
+import fuckBookies from "../routes/fuckBookies";
 
 function createServer() {
-    const app = express();
-    app.use(json());
-    app.use(urlencoded({ extended: true }));
+  const app = express();
+  app.use(json());
+  app.use(urlencoded({ extended: true }));
 
-    app.use(cors());
+  app.use(cors());
 
-    app.use('/saleOrderItem', saleOrderItemRouter);
-    app.use('/saleOrder', saleOrderRouter);
+  app.use("/fuck-bookies", fuckBookies);
 
-    return app;
+  return app;
 }
 
 export default createServer;
