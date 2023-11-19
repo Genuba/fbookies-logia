@@ -1,5 +1,5 @@
 import { BetInfo } from "../domain/betInfo";
-import moment from "moment";
+import moment from "moment-timezone";
 
 export class BwinBuilder implements BetInfo {
   bookie: string;
@@ -16,7 +16,7 @@ export class BwinBuilder implements BetInfo {
     ) {
       let itemNode = node["Items"][0]["Items"];
       this.bookie = "Bwin";
-      this.date = moment(node.EventDate).format("DD-MM-YYYY HH:mm:ss");
+      this.date = moment(node.EventDate).utc().tz("America/Bogota").format();
       this.teamA = {
         name: itemNode[0]["Name"],
         payOffPercent: itemNode[0]["Price"],

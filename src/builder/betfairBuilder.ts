@@ -1,5 +1,5 @@
 import { BetInfo } from "../domain/betInfo";
-import moment from "moment";
+import moment from "moment-timezone";
 
 export class BetfairBuilder implements BetInfo {
   bookie: string;
@@ -11,7 +11,7 @@ export class BetfairBuilder implements BetInfo {
   mapBetResponseNodeToBetInfo(node: any): void {
     if (node.o && node.o[0] && node.o[0].m && node.o[0].m.length > 0) {
       this.bookie = "betfair";
-      this.date = moment(node.d).format("DD-MM-YYYY HH:mm:ss");
+      this.date = moment(node.d).utc().tz("America/Bogota").format();
       this.teamA = {
         name: node.at,
         payOffPercent: parseFloat(node.o[0].m[0].o),

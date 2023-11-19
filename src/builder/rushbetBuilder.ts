@@ -1,5 +1,5 @@
 import { BetInfo } from "../domain/betInfo";
-import moment from "moment";
+import moment from "moment-timezone";
 
 export class RushbetBuilder implements BetInfo {
   bookie: string;
@@ -11,7 +11,7 @@ export class RushbetBuilder implements BetInfo {
   mapBetResponseNodeToBetInfo(node: any): void {
     if (node["betOffers"].length > 0) {
       this.bookie = "Rushbet";
-      this.date = moment(node.event.start).format("DD-MM-YYYY HH:mm:ss");
+      this.date = moment(node.event.start).utc().tz("America/Bogota").format();
       this.teamA = {
         name: node["event"]["homeName"],
         payOffPercent: node.betOffers[0].outcomes[0].odds / 1000,
