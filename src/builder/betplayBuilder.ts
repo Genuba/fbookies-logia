@@ -1,4 +1,4 @@
-import { BetInfo } from "../domain/betInfo";
+import { BetInfo } from "../model/betInfo";
 import moment from "moment-timezone";
 
 export class BetplayBuilder implements BetInfo {

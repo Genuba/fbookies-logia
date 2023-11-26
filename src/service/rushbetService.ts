@@ -1,5 +1,5 @@
 import { RushbetBuilder } from "../builder/rushbetBuilder";
-import { BetInfo } from "../domain/betInfo";
+import { BetInfo } from "../model/betInfo";
 import axios from "axios";
 
 export const fetchRushbet = async (): Promise<BetInfo[]> => {

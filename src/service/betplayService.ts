@@ -1,5 +1,5 @@
 import { BetplayBuilder } from "../builder/betplayBuilder";
-import { BetInfo } from "../domain/betInfo";
+import { BetInfo } from "../model/betInfo";
 import axios from "axios";
 
 export const fetchBetplay = async (): Promise<BetInfo[]> => {
