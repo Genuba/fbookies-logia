@@ -19,6 +19,7 @@ export const connectToDatabase = async () => {
   );
 
   collections.betsDate = betsCollection;
+  collections.betsDate.createIndex({ timestamp: 1 }, { unique: true });
 
   console.log(
     `Successfully connected to database: ${db.databaseName} and collection: ${betsCollection.collectionName}`

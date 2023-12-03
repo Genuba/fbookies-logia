@@ -10,6 +10,7 @@ import { collections } from "../db/database.service";
 
 export const getAllBets: RequestHandler = async (_req, res, _next) => {
   let data = [] as any;
+  let result = [] as any;
   data = [...(await fetchBetplay())];
   data = [...data, ...(await fetchRushbet())];
   data = [...data, ...(await fetchBwin())];
@@ -17,15 +18,30 @@ export const getAllBets: RequestHandler = async (_req, res, _next) => {
   //data = [...data, ...(await fetchBetfair())];
 
   const dataByDate = getAllBetsSortedByDate(data);
+  for (var i in dataByDate) {
+    const x = dataByDate[i];
 
-  //Save in data in mongo db
-  const result = await collections.betsDate?.insertOne({
-    bets: dataByDate,
+    try {
+      const r = await collections.betsDate?.updateOne(
+        { timestamp: i },
+        {
+          $set: {
+            timestamp: i,
+            bets: x,
+          },
+        },
+        { upsert: true }
+      );
+      if (r?.upsertedId) result.push(r?.upsertedId?.toString());
+    } catch (error) {
+      console.error("record was not inserted", error);
+    }
+  }
+
+  return res.status(200).json({
+    message: "Bets fetched successfully",
+    data: result,
   });
-
-  return res
-    .status(200)
-    .json({ message: "Bets fetched successfully", data: result?.insertedId });
 };
 
 const getAllBetsSortedByDate = (data: any) => {
